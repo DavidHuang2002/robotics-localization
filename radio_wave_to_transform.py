@@ -14,4 +14,3 @@ def radio_wave_find_transform(head_radio_distances, tail_radio_distances, berm_w
     robot_angle = calc_orientation(head_poition, tail_position, robot_width, robot_length)
 
     return coord_frame_transformation(robot_position, robot_angle)
-

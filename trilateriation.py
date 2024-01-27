@@ -1,4 +1,3 @@
-from common import Position
 # assuming the placement of beacon is in the following order
 # r1 ------- r2
 # |           |
