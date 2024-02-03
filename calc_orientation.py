@@ -8,6 +8,10 @@ import math
 #   --------- tail
 # return the angle of the robot in radian
 # maybe not use NDArray
+
+def normalize_angle(angle):
+    return np.mod(angle, 2 * np.pi)
+
 def calc_orientation(head_pos, tail_pos, robot_width, robot_length):
     # diagonal angle offset: the diff. in angle between angle of diagonal of robot
     # calculated from the actual orientation of the robot
@@ -22,6 +26,6 @@ def calc_orientation(head_pos, tail_pos, robot_width, robot_length):
     # return the angle from x axis in radian
     diagonal_orientation = np.arctan2(t_h_vec[1], t_h_vec[0])
 
-    return diagonal_orientation - dia_angle_offset
+    return normalize_angle(diagonal_orientation - dia_angle_offset)
 
 
