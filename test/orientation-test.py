@@ -1,10 +1,27 @@
-from radio_wave_to_transform import radio_wave_find_transform
-from calc_orientation import calc_orientation
-from trilateriation import trilaterate_based_on_berm
+
+import sys
+import os
+
+
+# set for test - allow for import from parent directory
+# so that I can import modules from the parent directory (like calc_orientation.py)
+def add_parent_dir_to_path():
+    """Add the parent directory of the script to sys.path."""
+    script_dir = os.path.dirname(os.path.abspath(__file__))  # Directory of the script
+    parent_dir = os.path.dirname(script_dir)  # Parent directory
+    sys.path.append(parent_dir)
+
+add_parent_dir_to_path()
+
+
+
 from math import pi
 import numpy as np
+from calc_orientation import calc_orientation
 
-# trilateration test
+# Now you can import modules from the parent directory
+# For example, if you have a module 'parent_module.py' in the parent directory, you can import it as follows:
+# import parent_module
 
 # calc_orientation test
 robot_width, robot_length  = 2, 4
@@ -34,7 +51,7 @@ for i in range(180):
 
     calc_angle = calc_orientation(head_pos, tail_pos, robot_width, robot_length)
     print(expected_angle, calc_angle)
-    # assert float_equal(expected_angle, calc_angle)
+    assert float_equal(expected_angle, calc_angle)
     
 
 print("all tests passed")
