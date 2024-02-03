@@ -3,7 +3,7 @@ import sys
 import os
 
 
-# set for test - allow for import from parent directory
+# set up for test - allow for import from parent directory
 # so that I can import modules from the parent directory (like calc_orientation.py)
 def add_parent_dir_to_path():
     """Add the parent directory of the script to sys.path."""
@@ -18,10 +18,7 @@ add_parent_dir_to_path()
 from math import pi
 import numpy as np
 from calc_orientation import calc_orientation
-
-# Now you can import modules from the parent directory
-# For example, if you have a module 'parent_module.py' in the parent directory, you can import it as follows:
-# import parent_module
+from utils import float_equal
 
 # calc_orientation test
 robot_width, robot_length  = 2, 4
@@ -38,8 +35,6 @@ def rotation_matrix(angle):
     return np.array([[np.cos(angle), -np.sin(angle)],
                      [np.sin(angle), np.cos(angle)]])
 
-def float_equal(x, y):
-    return abs(x - y) < 1e-10
 
 for i in range(180):
     head_pos, tail_pos= np.array([-1, 2]), np.array([1, -2])
