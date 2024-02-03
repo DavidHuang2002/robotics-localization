@@ -15,7 +15,7 @@ add_parent_dir_to_path()
 
 
 import numpy as np
-from trilateriation import trilaterate_based_on_berm, trilaterate
+from trilateriation import trilaterate_based_on_berm
 from utils import float_equal
 
 # Helper function to calculate distance between two points
